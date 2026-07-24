@@ -48,8 +48,10 @@ $RECYCLE.BIN/
 *.bak
 
 # --- Claude Code / local agent state ---
-# Project skills live under skills/ at repo root. Ignore local harness state.
-.claude/
+# Track project skills; ignore other harness/local state under .claude/
+.claude/*
+!.claude/skills/
+!.claude/skills/**/
 
 # --- Logs / temp ---
 *.log
