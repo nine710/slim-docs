@@ -7,6 +7,7 @@ description: >
   instructions, the user asks to split or slim agent docs, create agent-docs,
   or set up progressive project docs for coding agents. Do NOT use for
   implementing product features, general writing, or RAG/vector knowledge bases.
+argument-hint: [low|medium|high]
 ---
 
 # slim-docs
@@ -14,6 +15,16 @@ description: >
 Turn fat agent entry files into a **thin entry** + **`agent-docs/`** library so sessions pay less permanent context tax while agents can still load the right topic on demand.
 
 **Core principle:** Entry = commands + hard rules + load protocol. Topics = task/domain slots. Index = router.
+
+## Arguments
+
+When invoked as a slash command / skill with arguments (e.g. `/slim-docs medium` or Skill tool args):
+
+- User input: `$ARGUMENTS`
+- Treat the first token as **tier** if it is exactly `low`, `medium`, or `high` (case-insensitive).
+- If tier is present: **use it as the chosen tier** — do not re-ask the user to pick a tier.
+- If tier is missing or not one of those three: suggest a tier (see Procedure) and confirm in one sentence.
+- Ignore unknown extra tokens; if they look like a project path, treat as optional target root only when clearly a path.
 
 ## When to use
 
@@ -41,7 +52,7 @@ As needed: [topic-outlines.md](references/topic-outlines.md), [migration-checkli
 Follow [migration-checklist.md](references/migration-checklist.md). Summary:
 
 1. **Explore** — Find `CLAUDE.md` / `AGENTS.md`; note existing `agent-docs/`; skim layout.
-2. **Pick tier** — User override wins; else suggest low|medium|high in one sentence and confirm.
+2. **Pick tier** — From `$ARGUMENTS` if `low|medium|high`; else user override in chat; else suggest and confirm once.
 3. **Plan split** — List keep-in-entry vs topics (triggers + path + purpose). **high: confirm plan before writing.**
 4. **Write library** — `agent-docs/index.md` + topic files (task/domain slots). Unknown → `TODO`. Never invent business rules.
 5. **Thin entries** — Every existing entry file; paste load protocol; stay under tier line limit.
