@@ -198,3 +198,14 @@ cp -r skills/<name> "/c/Users/$USER/.claude/skills/"
 - `description` **禁止**概括正文工作流
 - 项目专属约定写本文件；可复用能力写 skill
 - 不要批量连写多个 skill 却每个都不测
+
+## slim-docs skill (this repo)
+
+Implementation path: `skills/slim-docs/`.
+Validate scripts:
+
+```bash
+python skills/slim-docs/scripts/measure_entry.py --root <project> --tier low|medium|high
+python skills/slim-docs/scripts/check_agent_docs.py --root <project> --tier low|medium|high
+python -m unittest discover -s skills/slim-docs/tests -v
+```

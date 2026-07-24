@@ -1,8 +1,8 @@
 # 目标 skill 设计上下文（进行中）
 
-本文记录 brainstorming 已对齐的产品决策，供后续方案/规格引用。  
-设计已批准并写入 `docs/superpowers/specs/2026-07-23-slim-docs-design.md`。  
-**尚未实现 skill 本体**；用户审阅 spec 通过后走 writing-plans。
+本文记录 brainstorming 已对齐的产品决策，供后续方案/规格引用。
+
+**Status:** skill package at `skills/slim-docs/`; design at `docs/superpowers/specs/2026-07-23-slim-docs-design.md`; plan at `docs/superpowers/plans/2026-07-24-slim-docs.md`.
 
 ## 问题
 
